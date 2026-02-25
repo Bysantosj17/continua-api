@@ -6,7 +6,7 @@ export const DataSourceConfig: DataSourceOptions = {
     host: 'localhost', //host: 'mysql',
     port: 3306,
     username: 'root',
-    password: 'picapapas',
+    password: 'hola123',
     database: 'continua',
     synchronize: true,
     entities: [Usuario]

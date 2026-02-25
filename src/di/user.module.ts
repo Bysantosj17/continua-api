@@ -26,6 +26,10 @@ import { DeleteUser } from "src/domain/usecases/user/delete-user.usecase";
         UniqueCodeValidator,
         UniqueEmailValidator,
     ],
-    controllers: [UserController]
+    controllers: [UserController],
+    //paso numero 69
+    exports: [
+        GetUserByEmail,
+    ]
 })
 export class UserModule{}
