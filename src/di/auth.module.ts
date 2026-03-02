@@ -5,6 +5,8 @@ import { TokenService } from "src/core/auth/token.service";
 import { Login } from "src/domain/usecases/auth/login.usecases";
 import { CommonModule } from "./common.module";
 import { AuthController } from "src/infraestructure/auth/auth.controller";
+import { JwtStrategy } from "src/infraestructure/auth/jwt.strategy";
+import { RoleGuard } from "src/infraestructure/auth/role.guard";
 
 @Module({
     imports: [
@@ -23,6 +25,8 @@ import { AuthController } from "src/infraestructure/auth/auth.controller";
     providers: [
         TokenService,
         Login,
+        JwtStrategy,
+        RoleGuard,
     ],
     //paso numero 73
     controllers: [

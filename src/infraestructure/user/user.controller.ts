@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, NotFoundException, Param, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, NotFoundException, Param, Post, Put, UseGuards } from "@nestjs/common";
 import { User } from "src/domain/models/user.model";
 import { CreateUser } from "src/domain/usecases/user/create-user.usecase";
 import { plainToInstance } from "class-transformer";
@@ -9,8 +9,14 @@ import { GetUserById } from "src/domain/usecases/user/get-user-by-id.usecase";
 import { GetAllUsers } from "src/domain/usecases/user/get-all-users.usecases";
 import { UpdateUser } from "src/domain/usecases/user/update-user.usecase";
 import { DeleteUser } from "src/domain/usecases/user/delete-user.usecase";
+import { AuthGuard } from "@nestjs/passport";
+import { RoleGuard } from "../auth/role.guard";
+import { Role } from "src/domain/models/role.enum";
+import { Auth } from "../auth/auth-role.decorator";
 
+@UseGuards(AuthGuard('jwt'), RoleGuard)
 @Controller('users')
+@Auth(Role.ADMINISTRATOR)
 export class UserController {
     constructor(
         private readonly createUser: CreateUser,

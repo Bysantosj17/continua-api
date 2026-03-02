@@ -30,6 +30,7 @@ import { DeleteUser } from "src/domain/usecases/user/delete-user.usecase";
     //paso numero 69
     exports: [
         GetUserByEmail,
+        GetUserById,
     ]
 })
 export class UserModule{}
