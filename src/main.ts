@@ -7,6 +7,7 @@ import { GetAllUsers } from './domain/usecases/user/get-all-users.usecases';
 import { User } from './domain/models/user.model';
 import { Role } from './domain/models/role.enum';
 import { create } from 'domain';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -22,6 +23,18 @@ async function bootstrap() {
   // paso numero 60 {
   app.setGlobalPrefix('api')
   //}paso numero 60
+
+  //Paso numero 86[
+  const config = new DocumentBuilder()
+    .setTitle("Continua Cursos backend")
+    .setDescription("API para administrar los cursos de Continua UDG")
+    .setVersion("1.0")
+    //.addTag("continua")
+    .build();
+  
+  const documentFactory = () => SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api', app, documentFactory);
+  //paso numero 86]
 
   // Paso numero 35
 

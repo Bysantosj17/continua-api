@@ -1,9 +1,10 @@
 import { Role } from "src/domain/models/role.enum";
 import { User } from "src/domain/models/user.model";
-import { IsNotEmpty } from "class-validator";
+import { IsNotEmpty, IsOptional } from "class-validator";
 import { PasswordMatch } from "../validation/password.validator";
 import { UniqueCode } from "../validation/unique-code.validator";
 import { UniqueEmail } from "../validation/unique-email.validator";
+import { ApiHideProperty } from "@nestjs/swagger";
 
 export class UserWriteDto{
 
