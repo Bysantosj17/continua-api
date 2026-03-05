@@ -3,7 +3,7 @@ import { User } from "src/domain/models/user.model";
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 
-@Entity()
+@Entity('usuarios')
 export class Usuario extends BaseEntity {
     @PrimaryGeneratedColumn()
     id?: number;
