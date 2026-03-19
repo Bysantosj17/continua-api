@@ -1,5 +1,9 @@
 import { DataSourceOptions } from 'typeorm';
 import { Usuario } from './entity/user.entity';
+import { Curso } from './entity/course.entity';
+import { Inscripcion } from './entity/enrollment.entity';
+import { Pagos } from './entity/payment.entity';
+import { Comprobante } from './entity/receipt.entity';
 
 export const DataSourceConfig: DataSourceOptions = {
     type: 'mysql',
@@ -9,5 +13,5 @@ export const DataSourceConfig: DataSourceOptions = {
     password: 'hola123',
     database: 'continua',
     synchronize: true,
-    entities: [Usuario]
+    entities: [Usuario, Curso, Inscripcion, Pagos, Comprobante],
 }

@@ -18,7 +18,7 @@ export class User {
 
     code: number;
 
-    toEntity() {
+    toDatabase() {
         const entity = new Usuario();
         
         entity.id = this.id;

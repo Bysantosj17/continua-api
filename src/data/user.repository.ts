@@ -7,7 +7,7 @@ export class UserRepository {
 
     //Esta parte es la numero 21
     async create(user: User) {
-        const entity = user.toEntity()
+        const entity = user.toDatabase()
 
         await entity.save() // INSERT INTO usuario VALUES (?, ? ...)
 
@@ -42,7 +42,7 @@ export class UserRepository {
     //Paso numero 46
 
     async update(user: User) {
-        const entity = user.toEntity();
+        const entity = user.toDatabase();
 
         await entity.save();  // UPDATE SET correo 2 ... WHERE id = ?
     }
@@ -50,7 +50,7 @@ export class UserRepository {
     //Paso numero 51
 
     async delete(user: User) {
-        const entity = user.toEntity();
+        const entity = user.toDatabase();
 
         await entity.remove() // DELETE FROM usuario where id = ?
     }
